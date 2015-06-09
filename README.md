@@ -2,10 +2,12 @@
 _Highly opinionated, and simlple generator for the yieldify dashboard_
 
 ## Installation
+
 Currently this isn't a proper module that you can `npm i`, so for the time being:
+
 1. Clone the repo onto your hard drive
-2. cd into the repo folder
-3. `npm link` - (makes this folder act like a globally installed npm module)
+2. Terminal: cd into the `generator-yiang` folder
+3. Terminal:  `npm link` - (makes this folder act like a globally installed npm module)
 
 ## How it works
 
@@ -105,7 +107,7 @@ angular
 
 
 
-_Default readme_
+# _Default readme for generators below_
 
 
 # generator-yiang [![Build Status](https://secure.travis-ci.org/AshCoolman/generator-yiang.png?branch=master)](https://travis-ci.org/AshCoolman/generator-yiang)
