@@ -1,3 +1,113 @@
+# Yi-ang
+_Highly opinionated, and simlple generator for the yieldify dashboard_
+
+## Installation
+Currently this isn't a proper module that you can `npm i`, so for the time being:
+1. Clone the repo onto your hard drive
+2. cd into the repo folder
+3. `npm link` - (makes this folder act like a globally installed npm module)
+
+## How it works
+
+### Before you do anything
+
+1. Go into yiang/packages.json
+2. Add "ngSrcDir": "<root dir of angular components for project>"
+    e.g. "app/src/ng-components" for dashboard
+
+### Examples
+
+### Just a service (and module)
+
+In terminal cd to project root and type:
+
+```terminal
+$ yo yiang tables/campaign-grid-columns
+```
+
+This should appear:
+
+```terminal
+     _-----_
+    |       |    .--------------------------.
+    |--(o)--|    |    Welcome to Yiang -    |
+   `---------´   |  yieldifys ng generator! |
+    ( _´U`_ )    '--------------------------'
+    /___A___\
+     |  ~  |
+   __'.___.'__
+ ´   `  |° ´ Y `
+
+
+Module name: tables/campaign-grid-columns
+
+
+[?] Compose build list from:
+  (a)ll
+  (d)irective
+  (c)ontroller
+  (s)service (factory)
+
+  default: a
+```
+
+Here select "s", and you can see the files that are created
+
+```terminal
+   create app/src/ng-components/tables/campaign-grid-columns/campaign-grid-columns.coffee
+   create app/src/ng-components/tables/campaign-grid-columns/campaign-grid-columns.service.coffee
+```
+
+
+`campaign-grid-columns.coffee` is a single module file (always created)
+
+```coffeescript
+angular
+    .module 'app.tables.campaign-grid-columns', [
+    # Dependencies
+    ]
+```
+
+`campaign-grid-columns.service.coffee` is a service (Factory) file
+
+```coffeescript
+CampaignGridColumnsService = ->
+
+    # PRIVATE
+    __private = {
+
+    }
+
+    # PUBLIC
+    
+    
+    # INTERFACE
+    {
+        __private
+    }
+
+angular
+    .module 'app.tables.campaign-grid-columns'
+    .factory 'campaignGridColumnsService', CampaignGridColumnsService
+
+###*
+ * campaignGridColumnsService
+ * 
+ * Private functions prepended with "_" and put in"__private" for testing easy testing
+###
+```
+
+## Roadmap
+
+* Generate a gulpfile (or equivalent)
+
+
+
+
+
+_Default readme_
+
+
 # generator-yiang [![Build Status](https://secure.travis-ci.org/AshCoolman/generator-yiang.png?branch=master)](https://travis-ci.org/AshCoolman/generator-yiang)
 
 > [Yeoman](http://yeoman.io) generator
