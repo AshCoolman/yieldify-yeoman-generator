@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "app/index.js",
   "repository": "AshCoolman/generator-yiang",
-  "componentsDir": "app/src/comp",
+  "ngSrcDir": "app/src/ng-components",
   "author": {
     "name": "A Coleman",
     "email": "",

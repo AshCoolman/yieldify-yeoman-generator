@@ -1,4 +1,4 @@
-XxXxController = =>
+<%= name_pascal %>Controller = =>
     # PRIVATE: prepend names _myPrivateFunc
     
     # PUBLIC: to be placed on vm
@@ -10,7 +10,5 @@ XxXxController = =>
     vm
 
 angular
-    .module 'app.xx-xx-controller', [
-        # deps
-    ]
-    .controller 'XxXxController', XxXxController
+    .module 'app.<%= module %>'
+    .controller '<%= name_camel %>Controller', <%= name_pascal %>Controller

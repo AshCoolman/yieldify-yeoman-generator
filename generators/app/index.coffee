@@ -18,10 +18,11 @@ module.exports = yeoman.generators.NamedBase.extend(
         (#{chalk.cyan('a')})ll
         (#{chalk.cyan('d')})irective
         (#{chalk.cyan('c')})ontroller
+        (#{chalk.cyan('s')})service (factory)
 
         default:
       """
-      default: 'a'
+      default: chalk.cyan 'a'
     } ]
     @prompt prompts, (props) =>
       @props = props
@@ -32,11 +33,14 @@ module.exports = yeoman.generators.NamedBase.extend(
   writing:
     app: ->
       buildTypes = @props?.buildTypes
+      @composeWith 'yiang:module', { options: {}, args: [@name]}
       isAll = _.contains buildTypes, 'a'
       if isAll or _.contains buildTypes, 'd'
         @composeWith 'yiang:directive', { options: {}, args: [@name]}
       if isAll or _.contains buildTypes, 'c'
         @composeWith 'yiang:controller', { options: {}, args: [@name]}
+      if isAll or _.contains buildTypes, 's'
+        @composeWith 'yiang:service', { options: {}, args: [@name]}
       # @fs.copy @templatePath('_package.json'), @destinationPath('package.json')
       # @fs.copy @templatePath('_bower.json'), @destinationPath('bower.json')
       return

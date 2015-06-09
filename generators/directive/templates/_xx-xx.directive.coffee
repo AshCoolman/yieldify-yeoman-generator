@@ -4,7 +4,5 @@
     controllerAs: '<%= name_camel %>'
 
 angular
-    .module 'app.<%= name_dash %>', [
-        # deps
-    ]
+    .module 'app.<%= module %>'
     .controller '<%= name_dash %>', <%= name_pascal %>Directive
