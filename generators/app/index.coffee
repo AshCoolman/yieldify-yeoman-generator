@@ -19,6 +19,7 @@ module.exports = yeoman.generators.NamedBase.extend(
         (#{chalk.cyan('d')})irective
         (#{chalk.cyan('c')})ontroller
         (#{chalk.cyan('s')})service (factory)
+        (#{chalk.cyan('v')})value
 
         default:
       """
@@ -41,6 +42,8 @@ module.exports = yeoman.generators.NamedBase.extend(
         @composeWith 'yiang:controller', { options: {}, args: [@name]}
       if isAll or _.contains buildTypes, 's'
         @composeWith 'yiang:service', { options: {}, args: [@name]}
+      if isAll or _.contains buildTypes, 'v'
+        @composeWith 'yiang:value', { options: {}, args: [@name]}
       # @fs.copy @templatePath('_package.json'), @destinationPath('package.json')
       # @fs.copy @templatePath('_bower.json'), @destinationPath('bower.json')
       return
