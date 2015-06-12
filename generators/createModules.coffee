@@ -1,6 +1,6 @@
 changeCase = require 'change-case'
 _ = require 'lodash'
-{ ngSrcDir } = require '../../../package.json'
+{ ngSrcDir } = require '../package.json'
 
 getNames = (fullName)-> 
     fileLoc = fullName
