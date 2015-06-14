@@ -18,7 +18,6 @@ module.exports = yeoman.generators.NamedBase.extend(
         (#{chalk.cyan('a')})ll
         (#{chalk.cyan('d')})irective
         (#{chalk.cyan('c')})ontroller
-        (#{chalk.cyan('s')})service (factory)
         (#{chalk.cyan('v')})value
 
         default:
@@ -33,19 +32,12 @@ module.exports = yeoman.generators.NamedBase.extend(
     return
   writing:
     app: ->
-      buildTypes = @props?.buildTypes
-      @composeWith 'yiang:module', { options: {}, args: [@name]}
-      isAll = _.contains buildTypes, 'a'
-      if isAll or _.contains buildTypes, 'd'
-        @composeWith 'yiang:directive', { options: {}, args: [@name]}
-      if isAll or _.contains buildTypes, 'c'
-        @composeWith 'yiang:controller', { options: {}, args: [@name]}
-      if isAll or _.contains buildTypes, 's'
-        @composeWith 'yiang:service', { options: {}, args: [@name]}
-      if isAll or _.contains buildTypes, 'v'
-        @composeWith 'yiang:value', { options: {}, args: [@name]}
-      # @fs.copy @templatePath('_package.json'), @destinationPath('package.json')
-      # @fs.copy @templatePath('_bower.json'), @destinationPath('bower.json')
+      has = (types) => types.split('').reduce ((prev, type) => prev or _(@props?.buildTypes).contains type), false
+      @composeWith 'yiang:module',     { options: { }, args: [@name]} if has 'adcsv'
+      @composeWith 'yiang:directive',  { options: { }, args: [@name]} if has 'ad'
+      @composeWith 'yiang:controller', { options: { }, args: [@name]} if has 'ac'
+      @composeWith 'yiang:service',    { options: { }, args: [@name]} if has 'as'
+      @composeWith 'yiang:value',      { options: { }, args: [@name]} if has 'av'
       return
     projectfiles: ->
       # @fs.copy @templatePath('editorconfig'), @destinationPath('.editorconfig')
