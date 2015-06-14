@@ -1,11 +1,12 @@
 changeCase = require 'change-case'
 _ = require 'lodash'
-{ ngSrcDir } = require '../package.json'
+{ ngSrcDir, e2eSrcDir } = require '../package.json'
 
 getNames = (fullName)-> 
     fileLoc = fullName
     bits = fullName.split '/'
     module = bits.join '.'
+    rootLoc = bits.map(-> '..').join('/') or './'
     component = bits.pop()
     {
         name_dash: component
@@ -13,6 +14,7 @@ getNames = (fullName)->
         name_camel: changeCase.camel component
         module: module
         file_loc: fileLoc
+        root_loc: rootLoc
     }
 
 module.exports = {
