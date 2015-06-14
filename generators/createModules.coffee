@@ -44,5 +44,9 @@ module.exports = {
             context = _.extend {}, getNames(@name)
             @template '_xx-xx.value.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.value.coffee', context
             return
+    e2e: -> 
+        ->
+            context = _.extend {}, getNames(@name)
+            @template '_xx-xx.e2e.dom.coffee', e2eSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.e2e.dom.coffee', context
             return
 }

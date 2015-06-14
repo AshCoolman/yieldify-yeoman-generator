@@ -20,6 +20,7 @@ module.exports = yeoman.generators.NamedBase.extend(
         (#{chalk.cyan('c')})ontroller
         (#{chalk.cyan('s')})ervice (factory)
         (#{chalk.cyan('v')})alue
+        (#{chalk.cyan('e')})2e page object
 
         default:
       """
@@ -39,6 +40,7 @@ module.exports = yeoman.generators.NamedBase.extend(
       @composeWith 'yiang:controller', { options: { }, args: [@name]} if has 'ac'
       @composeWith 'yiang:service',    { options: { }, args: [@name]} if has 'as'
       @composeWith 'yiang:value',      { options: { }, args: [@name]} if has 'av'
+      @composeWith 'yiang:e2e',        { options: { }, args: [@name]} if has 'ae'
       return
     projectfiles: ->
       return
