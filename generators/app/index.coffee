@@ -18,7 +18,8 @@ module.exports = yeoman.generators.NamedBase.extend(
         (#{chalk.cyan('a')})ll
         (#{chalk.cyan('d')})irective
         (#{chalk.cyan('c')})ontroller
-        (#{chalk.cyan('v')})value
+        (#{chalk.cyan('s')})ervice (factory)
+        (#{chalk.cyan('v')})alue
 
         default:
       """
@@ -40,8 +41,6 @@ module.exports = yeoman.generators.NamedBase.extend(
       @composeWith 'yiang:value',      { options: { }, args: [@name]} if has 'av'
       return
     projectfiles: ->
-      # @fs.copy @templatePath('editorconfig'), @destinationPath('.editorconfig')
-      # @fs.copy @templatePath('jshintrc'), @destinationPath('.jshintrc')
       return
   install: ->
     # @installDependencies()
