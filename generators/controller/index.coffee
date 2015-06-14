@@ -6,6 +6,6 @@ changeCase = require 'change-case'
 createModules = require '../createModules.coffee'
 
 OnepageGenerator = yeoman.generators.NamedBase.extend {
-  createControllerFiles: createModules.controller '_xx-xx.controller.coffee'
+  createControllerFiles: createModules.controller()
 }
 module.exports = OnepageGenerator

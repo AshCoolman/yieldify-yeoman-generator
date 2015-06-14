@@ -17,29 +17,30 @@ getNames = (fullName)->
 
 module.exports = {
     getNames: getNames
-    module: (template) -> 
+    module: -> 
         ->
             context = _.extend {}, getNames(@name)
-            @template template, ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.coffee', context
+            @template '_xx-xx.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.coffee', context
             return
-    directive: (template) -> 
+    directive: -> 
         ->
             context = _.extend {}, getNames(@name)
-            @template template, ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.directive.coffee', context
+            @template '_xx-xx.directive.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.directive.coffee', context
             return
-    controller: (template) -> 
+    controller: -> 
         ->
             context = _.extend {}, getNames(@name)
-            @template template, ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.controller.coffee', context
+            @template '_xx-xx.controller.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.controller.coffee', context
             return
-    service: (template) -> 
+    service: -> 
         ->
             context = _.extend {}, getNames(@name)
-            @template template, ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.service.coffee', context
+            @template '_xx-xx.service.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.service.coffee', context
             return
-    value: (template) -> 
+    value: -> 
         ->
             context = _.extend {}, getNames(@name)
-            @template template, ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.value.coffee', context
+            @template '_xx-xx.value.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.value.coffee', context
+            return
             return
 }
