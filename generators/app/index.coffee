@@ -20,7 +20,7 @@ module.exports = yeoman.generators.NamedBase.extend(
         (#{chalk.cyan('c')})ontroller
         (#{chalk.cyan('s')})ervice (factory)
         (#{chalk.cyan('v')})alue
-        (#{chalk.cyan('e')})2e page object
+        (#{chalk.cyan('e')})2e dom handle
 
         default:
       """

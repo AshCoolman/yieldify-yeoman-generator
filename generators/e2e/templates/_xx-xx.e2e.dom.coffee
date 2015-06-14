@@ -7,11 +7,11 @@ wait = browser.wait
 ptr = protractor
 til = ptr.until
 
-<%= name_pascal %>Overlay = (settings, after) ->
+<%= name_pascal %> = (settings, after) ->
     Dom.call @, settings, after
     @
     
-<%= name_pascal %>Overlay:: = Object.create Dom::,
+<%= name_pascal %>:: = Object.create Dom::,
 
     ###*
      * @type {String}   Folder that test data
@@ -38,4 +38,4 @@ til = ptr.until
                         expect browser.isElementPresent el
                             .toEqual true
 
-module.exports = <%= name_pascal %>Overlay
+module.exports = <%= name_pascal %>
