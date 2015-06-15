@@ -3,7 +3,7 @@ _Highly opinionated, and simlple generator for the yieldify dashboard_
 
 ## Installation
 
-Currently this isn't a proper module that you can `npm i`, so for the time being:
+Currently this isn't a proper module that you can't `npm i`, so for the time being:
 
 1. Clone the repo onto your hard drive
 2. Terminal: cd into the `generator-yiang` folder
