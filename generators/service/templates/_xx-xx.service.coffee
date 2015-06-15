@@ -1,4 +1,4 @@
-<%= name_pascal %>Service = ->
+<%= name_camel %>Service = ->
 
     # PRIVATE
     __private = {
@@ -15,7 +15,7 @@
 
 angular
     .module 'app.<%= module %>'
-    .factory '<%= name_camel %>Service', <%= name_pascal %>Service
+    .factory '<%= name_camel %>Service', <%= name_camel %>Service
 
 ###*
  * <%= name_camel %>Service

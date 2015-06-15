@@ -1,8 +1,8 @@
-<%= name_pascal %>Directive = =>
+<%= name_camel %>Directive = =>
     restrict: 'AES'
     templateUrl: '/tpl/<%= name_dash %>.template.html'
     controllerAs: '<%= name_camel %>'
 
 angular
     .module 'app.<%= module %>'
-    .controller '<%= name_dash %>', <%= name_pascal %>Directive
+    .controller '<%= name_dash %>', <%= name_camel %>Directive
