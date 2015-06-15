@@ -3,7 +3,7 @@
 
 angular
     .module 'app.<%= module %>'
-    .value '<%= name_camel %>Value', <%= name_came %>Value
+    .value '<%= name_camel %>Value', <%= name_camel %>Value
 
 ###*
  * <%= name_camel %>Value
