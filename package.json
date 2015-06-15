@@ -1,15 +1,15 @@
 {
   "name": "generator-yiang",
-  "version": "0.0.0",
-  "description": "Yeoman generator",
+  "version": "0.6.0",
+  "description": "Yieldifys Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "AshCoolman/generator-yiang",
   "ngSrcDir": "app/src/ng-components",
   "e2eSrcDir": "test/e2e/components",
   "author": {
-    "name": "A Coleman",
-    "email": "",
+    "name": "Ashley Coleman",
+    "email": "writetofish@gmail.com",
     "url": "https://github.com/AshCoolman"
   },
   "scripts": {
