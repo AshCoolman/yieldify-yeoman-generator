@@ -1,5 +1,5 @@
 <%= name_pascal %>Value =
-    name: '<%= name_came %>'
+    name: '<%= name_camel %>'
 
 angular
     .module 'app.<%= module %>'
