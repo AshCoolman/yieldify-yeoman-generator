@@ -34,6 +34,11 @@ module.exports = {
             context = _.extend {}, getNames(@name)
             @template '_xx-xx.template.jade', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.template.jade', context
             return
+    style: -> 
+        ->
+            context = _.extend {}, getNames(@name)
+            @template '_xx-xx.style.styl', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.style.styl', context
+            return
     controller: -> 
         ->
             context = _.extend {}, getNames(@name)
