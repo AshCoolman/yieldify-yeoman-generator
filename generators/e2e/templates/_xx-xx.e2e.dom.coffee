@@ -6,6 +6,7 @@ utils = require '<%= root_loc %>/e2e.dom.utils.coffee'
 
 <%= name_pascal %> = (settings, after) ->
     Dom.call @, settings, after
+    @dom = {}
     @name = '<%= name_camel %>'
     @
     
@@ -36,5 +37,12 @@ utils = require '<%= root_loc %>/e2e.dom.utils.coffee'
                 expect browser.isElementPresent el
                     .toEqual true
 
+    ###*
+     * Small "programs" built from children methods (on `this.dom`)
+    ###
+    cmds:
+        get: =>
+            ->
+                task: -> #
 
 module.exports = <%= name_pascal %>

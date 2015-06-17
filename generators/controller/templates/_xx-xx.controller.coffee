@@ -1,4 +1,4 @@
-<%= name_camel %>Controller = =>
+<%= name_camel %>Controller = ->
     # PRIVATE: prepend names _myPrivateFunc
     
     # PUBLIC: to be placed on vm
