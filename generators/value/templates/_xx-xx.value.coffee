@@ -1,4 +1,4 @@
-<%= name_pascal %>Value =
+<%= name_camel %>Value =
     name: '<%= name_camel %>'
 
 angular
