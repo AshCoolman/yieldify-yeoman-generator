@@ -38,7 +38,8 @@ module.exports = yeoman.generators.NamedBase.extend(
       has = (types) => types.split('').reduce ((prev, type) => prev or _(@props?.buildTypes).contains type), false
       @composeWith 'yiang:module',     { options: { }, args: [@name]} if has 'adcsv'
       @composeWith 'yiang:directive',  { options: { }, args: [@name]} if has 'adt'
-      @composeWith 'yiang:template',  { options: { }, args: [@name]} if has 'at'
+      @composeWith 'yiang:template',  { options: { }, args: [@name]} if has 'adt'
+      @composeWith 'yiang:style',  { options: { }, args: [@name]} if has 'adt'
       @composeWith 'yiang:controller', { options: { }, args: [@name]} if has 'ac'
       @composeWith 'yiang:service',    { options: { }, args: [@name]} if has 'as'
       @composeWith 'yiang:value',      { options: { }, args: [@name]} if has 'av'
