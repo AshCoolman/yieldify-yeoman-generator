@@ -1,6 +1,6 @@
 changeCase = require 'change-case'
 _ = require 'lodash'
-{ ngSrcDir, e2eSrcDir } = require '../package.json'
+{ ngSrcDir, e2eSrcDir, inbroActionSrcDir } = require '../package.json'
 
 getNames = (fullName)-> 
     fileLoc = fullName
@@ -59,4 +59,10 @@ module.exports = {
             context = _.extend {}, getNames(@name)
             @template '_xx-xx.e2e.dom.coffee', e2eSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.e2e.dom.coffee', context
             return
+    inbroAction: -> 
+        ->
+            context = _.extend {}, getNames(@name)
+            @template '_xx-xx.action.coffee', inbroActionSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.action.coffee', context
+            return
+
 }

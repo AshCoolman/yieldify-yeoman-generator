@@ -21,7 +21,11 @@ module.exports = yeoman.generators.NamedBase.extend(
         (#{chalk.cyan('c')})ontroller
         (#{chalk.cyan('s')})ervice (factory)
         (#{chalk.cyan('v')})alue
+
         (#{chalk.cyan('e')})2e dom handle
+        (#{chalk.cyan('x')})xecute e2e script
+
+        (#{chalk.cyan('i')})nbro action
 
         default:
       """
@@ -36,14 +40,15 @@ module.exports = yeoman.generators.NamedBase.extend(
   writing:
     app: ->
       has = (types) => types.split('').reduce ((prev, type) => prev or _(@props?.buildTypes).contains type), false
-      @composeWith 'yiang:module',     { options: { }, args: [@name]} if has 'adcsv'
-      @composeWith 'yiang:directive',  { options: { }, args: [@name]} if has 'adt'
-      @composeWith 'yiang:template',  { options: { }, args: [@name]} if has 'adt'
-      @composeWith 'yiang:style',  { options: { }, args: [@name]} if has 'adt'
-      @composeWith 'yiang:controller', { options: { }, args: [@name]} if has 'ac'
-      @composeWith 'yiang:service',    { options: { }, args: [@name]} if has 'as'
-      @composeWith 'yiang:value',      { options: { }, args: [@name]} if has 'av'
-      @composeWith 'yiang:e2e',        { options: { }, args: [@name]} if has 'ae'
+      @composeWith 'yiang:module'       , { options: { } , args: [@name]} if has 'adcsv'
+      @composeWith 'yiang:directive'    , { options: { } , args: [@name]} if has 'adt'
+      @composeWith 'yiang:template'     , { options: { } , args: [@name]} if has 'adt'
+      @composeWith 'yiang:style'        , { options: { } , args: [@name]} if has 'adt'
+      @composeWith 'yiang:controller'   , { options: { } , args: [@name]} if has 'ac'
+      @composeWith 'yiang:service'      , { options: { } , args: [@name]} if has 'as'
+      @composeWith 'yiang:value'        , { options: { } , args: [@name]} if has 'av'
+      @composeWith 'yiang:e2e'          , { options: { } , args: [@name]} if has 'ae'
+      @composeWith 'yiang:inbro-action' , { options: { } , args: [@name]} if has 'ai'
       return
     projectfiles: ->
       return
