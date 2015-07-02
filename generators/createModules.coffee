@@ -24,6 +24,11 @@ module.exports = {
             context = _.extend {}, getNames(@name)
             @template '_xx-xx.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.coffee', context
             return
+    value: -> 
+        ->
+            context = _.extend {}, getNames(@name)
+            @template '_xx-xx.value.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.value.coffee', context
+            return
     directive: -> 
         ->
             context = _.extend {}, getNames(@name)
@@ -49,10 +54,10 @@ module.exports = {
             context = _.extend {}, getNames(@name)
             @template '_xx-xx.service.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.service.coffee', context
             return
-    value: -> 
+    provider: -> 
         ->
             context = _.extend {}, getNames(@name)
-            @template '_xx-xx.value.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.value.coffee', context
+            @template '_xx-xx.provider.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.provider.coffee', context
             return
     e2e: -> 
         ->
