@@ -3,6 +3,8 @@ create = (bt) =>
     # Action info
     name = "<%= name_camel %>"
     FAIL_SAFE = name + " timed out"
+    FAIL = false
+    PASS = true
 
     # Action
     <%= name_camel %>: (input) =>
@@ -20,7 +22,7 @@ create = (bt) =>
 
             fulfill { outputs, duration }
 
-            setTimeout (=> reject FAIL_SAFE), 10*1000
+            setTimeout (=> resolve {state: FAIL, details: FAIL_SAFE}), 10*1000
 
 `export default create`
 
@@ -50,10 +52,16 @@ create = (bt) =>
 
     2. Perform the tests 
     
-    asyncTests.push actions.clientSeesOnlyWhatTheyShould().then (testResult) =>
-        { outputs } = testResult
-        _.each testResult.outputs (r) ->addTest "[X1]", "I choose this in mainbro", r.state, r.state.details
-        
+
+    ```
+    asyncTests.push new Promise (resolve, reject) =>
+        onTestResolved = (result) => addTest "[X1]", "Currency changed", result.status, result.details
+
+        actions.testCurrency()
+            .then onTestResolved
+            .catch onTestResolved
+
+    ```
     
     # Concerns
 
