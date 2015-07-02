@@ -7,7 +7,7 @@
   "repository": "AshCoolman/generator-yiang",
   "ngSrcDir": "app/src/ng-components",
   "e2eSrcDir": "test/e2e/components",
-  "inbroActionSrcDir": "test/e2e/components/action",
+  "inbroActionSrcDir": "test/inbro/action",
   "author": {
     "name": "Ashley Coleman",
     "email": "writetofish@gmail.com",
