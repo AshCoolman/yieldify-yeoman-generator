@@ -3,9 +3,9 @@ path = require 'path'
 yeoman = require 'yeoman-generator'
 chalk = require 'chalk'
 changeCase = require 'change-case'
-createModules = require '../createModules.coffee'
+create = require '../create.coffee'
 
 OnepageGenerator = yeoman.generators.NamedBase.extend {
-  createDirectiveFiles: createModules.directive()
+  createDirectiveFiles: create.directive()
 }
 module.exports = OnepageGenerator
