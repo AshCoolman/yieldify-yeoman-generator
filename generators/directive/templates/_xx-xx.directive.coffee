@@ -6,4 +6,4 @@
 
 angular
     .module 'app.<%= module %>'
-    .directive '<%= name_dash %>', <%= name_camel %>Directive
+    .directive '<%= name_camel %>', <%= name_camel %>Directive
