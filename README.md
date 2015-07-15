@@ -1,4 +1,7 @@
-# Yi-ang
+# Y-man
+
+**Unfinished**: Currently scaffolding only angular and test modules. Not currently creating build script / other project files.
+
 _Highly opinionated, and simlple generator for the yieldify dashboard_
 
 ## Installation
@@ -101,7 +104,7 @@ angular
 
 ## Roadmap
 
-* Generate a gulpfile (or equivalent)
+* Generate a gulpfile (or equivalent) and other builds files
 
 
 
