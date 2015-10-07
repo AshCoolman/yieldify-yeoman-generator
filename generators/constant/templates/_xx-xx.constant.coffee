@@ -3,7 +3,7 @@
 
 angular
     .module 'app.<%= module %>'
-    .value '<%= name_camel %>Constant', <%= name_camel %>Constant
+    .constant '<%= name_camel %>Constant', <%= name_camel %>Constant
 
 ###*
  * <%= name_camel %>Constant
