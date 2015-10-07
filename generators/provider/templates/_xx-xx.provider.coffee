@@ -28,7 +28,7 @@
     @
 
 angular
-    .module 'app.<%= module %>', []
+    .module 'app.<%= module %>'
     .provider '<%= name_pascal %>Provider', <%= name_pascal %>Provider
 
 
