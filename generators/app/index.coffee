@@ -16,6 +16,7 @@ module.exports = yeoman.generators.NamedBase.extend(
       message: """
       Compose build list from:
         (#{chalk.cyan('a')})ll
+        (#{chalk.cyan('C')})ONSTANT
         (#{chalk.cyan('v')})alue
         (#{chalk.cyan('d')})irective
         (#{chalk.cyan('t')})emplate
@@ -41,8 +42,9 @@ module.exports = yeoman.generators.NamedBase.extend(
   writing:
     app: ->
       has = (types) => types.split('').reduce ((prev, type) => prev or _(@props?.buildTypes).contains type), false
-      @composeWith 'yiang:module'       , { options: { } , args: [@name]} if has 'avdcsp'
+      @composeWith 'yiang:module'       , { options: { } , args: [@name]} if has 'avCdcsp'
       @composeWith 'yiang:value'        , { options: { } , args: [@name]} if has 'av'
+      @composeWith 'yiang:constant'     , { options: { } , args: [@name]} if has 'aC'
       @composeWith 'yiang:directive'    , { options: { } , args: [@name]} if has 'adt'
       @composeWith 'yiang:template'     , { options: { } , args: [@name]} if has 'adt'
       @composeWith 'yiang:style'        , { options: { } , args: [@name]} if has 'adt'

@@ -24,6 +24,12 @@ module.exports = {
             context = _.extend {}, getNames(@name)
             @template '_xx-xx.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.coffee', context
             return
+    constant: -> 
+        ->
+            context = _.extend {}, getNames(@name)
+            @template '_xx-xx.constant.coffee', ngSrcDir + '/' + context.file_loc + '/' + context.name_dash + '.constant.coffee', context
+            return
+
     value: -> 
         ->
             context = _.extend {}, getNames(@name)
