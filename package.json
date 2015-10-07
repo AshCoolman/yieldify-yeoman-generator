@@ -1,6 +1,6 @@
 {
   "name": "generator-yiang",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Yieldifys Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
