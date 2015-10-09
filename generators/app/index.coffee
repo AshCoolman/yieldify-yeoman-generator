@@ -23,6 +23,7 @@ module.exports = yeoman.generators.NamedBase.extend(
         (#{chalk.cyan('c')})ontroller
         (#{chalk.cyan('s')})ervice (factory)
         (#{chalk.cyan('p')})rovider (service)
+        (#{chalk.cyan('m')})odule only
 
         (#{chalk.cyan('e')})2e dom handle
         (#{chalk.cyan('x')})xecute e2e script
@@ -42,7 +43,7 @@ module.exports = yeoman.generators.NamedBase.extend(
   writing:
     app: ->
       has = (types) => types.split('').reduce ((prev, type) => prev or _(@props?.buildTypes).contains type), false
-      @composeWith 'yiang:module'       , { options: { } , args: [@name]} if has 'avCdcsp'
+      @composeWith 'yiang:module'       , { options: { } , args: [@name]} if has 'avCdcspm'
       @composeWith 'yiang:value'        , { options: { } , args: [@name]} if has 'av'
       @composeWith 'yiang:constant'     , { options: { } , args: [@name]} if has 'aC'
       @composeWith 'yiang:directive'    , { options: { } , args: [@name]} if has 'adt'
