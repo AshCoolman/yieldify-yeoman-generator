@@ -1,3 +1,4 @@
+# This extends `NamedBase` to use with `composeWith`
 util = require 'util'
 path = require 'path'
 yeoman = require 'yeoman-generator'

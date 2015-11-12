@@ -1,3 +1,5 @@
+# These are used to extend `NamedBase`
+
 changeCase = require 'change-case'
 _ = require 'lodash'
 
