@@ -75,4 +75,9 @@ module.exports = {
             @template '_xx-xx.action.coffee', context.inbro + '/' + context.file_loc + '/' + context.name_dash + '.action.coffee', context
             return
 
+    ng2Basic: (options) -> 
+        ->  
+            context = _.extend {}, getNames(@name), @options.settings
+            @template '_xx-xx.ts', context.components + '/' + context.file_loc + '/' + context.name_dash + '.ts', context
+            return
 }
