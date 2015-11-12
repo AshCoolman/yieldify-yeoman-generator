@@ -5,9 +5,18 @@
   "license": "MIT",
   "main": "app/index.js",
   "repository": "AshCoolman/generator-yiang",
-  "ngSrcDir": "app/src/ng-components",
-  "e2eSrcDir": "test/e2e/components",
-  "inbroActionSrcDir": "test/inbro/action",
+  "yeoman-yieldify": {
+    "angular1": {
+      "components": "app/src/ng1",
+      "e2e": "test/e2e/ng1",
+      "inbro": "test/inbro/ng1"
+    },
+    "angular2": {
+      "components": "app/src/ng2",
+      "e2e": "test/e2e/ng2",
+      "inbro": "test/inbro/ng2"
+    }
+  },
   "author": {
     "name": "Ashley Coleman",
     "email": "writetofish@gmail.com",
@@ -27,6 +36,9 @@
     "change-case": "^2.3.0",
     "coffee-script": "~1.6.3",
     "lodash": "^3.9.3",
+    "string.prototype.endswith": "^0.2.0",
+    "string.prototype.startswith": "^0.2.0",
+    "utils-fs-exists": "^1.0.1",
     "yeoman-generator": "^0.19.0",
     "yosay": "^1.0.2"
   },

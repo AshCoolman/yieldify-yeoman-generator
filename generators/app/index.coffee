@@ -1,4 +1,7 @@
 'use strict'
+path = require 'path'
+existsSync = require( 'utils-fs-exists' ).sync
+require 'string.prototype.startswith'
 _ = require('lodash')
 yeoman = require('yeoman-generator')
 chalk = require('chalk')
@@ -6,6 +9,16 @@ yosay = require('yosay')
 module.exports = yeoman.generators.NamedBase.extend(
   prompting: ->
     done = @async()
+
+    # Use project's package.json, else fallback to this module's
+    settings = null 
+    if existsSync '/package.json'
+      settings = require(process.cwd()+'/package.json')?['yeoman-yieldify']
+      console.log 'Using project package.json :)'
+    if not settings
+      settings = require('../../package.json')['yeoman-yieldify']
+      console.log '"yeoman-yieldify" not found in package.json, using defaults:'+JSON.stringify(settings, null, 2)
+
     # Have Yeoman greet the user.
     @log yosay('Welcome to ' + chalk.cyan('Yiang - yieldifys ng') + ' generator!')
     console.log "\nModule name: "+ chalk.white @name
@@ -35,6 +48,7 @@ module.exports = yeoman.generators.NamedBase.extend(
       default: chalk.cyan 'a'
     } ]
     @prompt prompts, (props) =>
+      props.settings = settings["angular1"]
       @props = props
       # To access props later use this.props.someOption;
       done()
