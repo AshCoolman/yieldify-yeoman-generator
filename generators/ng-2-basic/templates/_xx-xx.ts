@@ -9,3 +9,4 @@ import {Component} from 'angular2/angular2';
 export class <%= name_pascal %> () {
     
 }
+// import {<%= name_pascal %>} from '<%= moduleLoc %>';

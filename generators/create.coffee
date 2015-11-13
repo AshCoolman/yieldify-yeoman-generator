@@ -18,8 +18,21 @@ getNames = (fullName)->
         root_loc: rootLoc
     }
 
+getNamesNg2 = (fullName, componentDir)-> 
+    bits = fullName.split '/'
+    component = bits.pop()
+    fileLoc = bits.join('/') or '/'
+    {
+        name_dash: component
+        name_pascal: changeCase.pascal component
+        name_camel: changeCase.camel component
+        fileLoc: componentDir + '/' + fileLoc + '/' + component
+        moduleLoc: './' + fileLoc + '/' + component
+    }
+
 module.exports = {
     getNames: getNames
+    getNamesNg2: getNamesNg2
     module: -> 
         ->
             context = _.extend {}, getNames(@name), @options.settings
@@ -80,7 +93,7 @@ module.exports = {
 
     ng2Basic: (options) -> 
         ->  
-            context = _.extend {}, getNames(@name), @options.settings
-            @template '_xx-xx.ts', process.cwd()+context.components + '/' + context.file_loc + '/' + context.name_dash + '.ts', context
+            context = _.extend {}, getNamesNg2(@name, @options.settings.components), @options.settings
+            @template '_xx-xx.ts', process.cwd() + context.fileLoc + '.ts', context
             return
 }
