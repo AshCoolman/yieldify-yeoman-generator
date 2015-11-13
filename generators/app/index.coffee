@@ -14,12 +14,13 @@ module.exports = yeoman.generators.NamedBase.extend(
 
     # Use project's package.json, else fallback to this module's
     settings = null 
-    if existsSync '/package.json'
+
+    if existsSync process.cwd()+'/package.json'
       settings = require(process.cwd()+'/package.json')?['yeoman-yieldify']
-      console.log 'Using project package.json :)'
+      console.log '"yeoman-yieldify" found in '+process.cwd()+'/package.json'
     if not settings
       settings = require('../../package.json')['yeoman-yieldify']
-      console.log '"yeoman-yieldify" not found in package.json, using defaults:'+JSON.stringify(settings, null, 2)
+      console.log '"yeoman-yieldify" not found in '+process.cwd()+'/package.json, using defaults:'+JSON.stringify(settings, null, 2)
 
     # Have Yeoman greet the user.
     @log yosay('Welcome to ' + chalk.cyan('Yiang - yieldifys ng') + ' generator!')
