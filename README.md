@@ -71,8 +71,8 @@ Module name: tables/campaign-grid-columns
 Here select "s", and you can see the files that are created
 
 ```terminal
-   create app/src/ng-components/tables/campaign-grid-columns/campaign-grid-columns.coffee
-   create app/src/ng-components/tables/campaign-grid-columns/campaign-grid-columns.service.coffee
+   create ../in-broundefined/parent-component/new-sub-component/new-sub-component.coffee
+   create ../in-broundefined/parent-component/new-sub-component/new-sub-component.service.coffee
 ```
 
 
