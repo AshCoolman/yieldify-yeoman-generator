@@ -1,6 +1,6 @@
-# Yieldify yeoman generator
+# Yieldify Yeoman generator
 
-Used to capture any scaffolding we do at Yieldify, and no gaurantees are being made for its completeness outside of the Yieldify context (or even within it).
+This project is used to capture any scaffolding we do at Yieldify, and no gaurantees are being made for its completeness outside of the Yieldify context (or even within it).
 
 _Highly opinionated, and simlple generator for the yieldify dashboard_
 
