@@ -1,6 +1,5 @@
 'use strict'
 path = require 'path'
-existsSync = require( 'utils-fs-exists' ).sync
 require 'string.prototype.startswith'
 require 'string.prototype.endswith'
 
@@ -13,13 +12,7 @@ module.exports = yeoman.generators.NamedBase.extend(
     done = @async()
 
     # Use project's package.json, else fallback to this module's
-    settings = null 
-    if existsSync process.cwd()+'/package.json'
-      settings = require(process.cwd()+'/package.json')?['yeoman-yieldify']
-      console.log '"yeoman-yieldify" found in '+process.cwd()+'/package.json'
-    if not settings
-      settings = require('../../package.json')['yeoman-yieldify']
-      console.log '"yeoman-yieldify" not found in '+process.cwd()+'/package.json, using defaults:'+JSON.stringify(settings, null, 2)
+    settings = require(__dirname + '/load-settings/load-settings')()
 
     # Have Yeoman greet the user.
     @log yosay('Welcome to ' + chalk.cyan('Yiang - yieldifys ng') + ' generator!')
