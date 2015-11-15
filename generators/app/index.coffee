@@ -7,72 +7,35 @@ _ = require('lodash')
 yeoman = require('yeoman-generator')
 chalk = require('chalk')
 yosay = require('yosay')
+
 module.exports = yeoman.generators.NamedBase.extend(
   prompting: ->
     done = @async()
-
-    # Use project's package.json, else fallback to this module's
-    settings = require(__dirname + '/load-settings/load-settings')()
-
-    # Have Yeoman greet the user.
     @log yosay('Welcome to ' + chalk.cyan('Yiang - yieldifys ng') + ' generator!')
-    console.log "\nModule name: "+ chalk.white @name
-    console.log "\n"
-    prompts = [ {
-      type: 'input'
-      name: 'buildTypes'
-      message: """
-      Compose build list from:
+    settings = require(__dirname + '/load-settings/load-settings')()
+    
+    console.log "Module name: #{chalk.white(@name)}\n"
 
-        #{chalk.red('Angular 1')}:
-
-          (#{chalk.cyan('a')})ll
-          (#{chalk.cyan('C')})ONSTANT
-          (#{chalk.cyan('v')})alue
-          (#{chalk.cyan('d')})irective
-          (#{chalk.cyan('t')})emplate
-          (#{chalk.cyan('c')})ontroller
-          (#{chalk.cyan('s')})ervice (factory)
-          (#{chalk.cyan('p')})rovider (service)
-          (#{chalk.cyan('m')})odule only
-
-          (#{chalk.cyan('e')})2e dom handle
-          (#{chalk.cyan('x')})xecute e2e script
-
-          (#{chalk.cyan('i')})nbro action
-
-        #{chalk.red('Angular 2')}
-
-          PREFIX: "#{chalk.cyan('2')}"--
-
-          (#{chalk.cyan('b')})asic component
-          (#{chalk.cyan('a')})all
-
-        default:
-      """
-      default: chalk.cyan 'a'
-    } ]
+    prompts = [
+      require "./prompt/scaffold-type"
+      require "./prompt/scaffold-type-angular-1"
+      require "./prompt/scaffold-type-angular-2"
+      require "./prompt/scaffold-type-new"
+    ]
     @prompt prompts, (props) =>
-
-      if props.buildTypes.startsWith '2'
-        props.generatorType = "angular2"
-      else
-        props.generatorType = "angular1"
+      if props.scaffoldType is '1' then props.generatorType = "angular1"
+      if props.scaffoldType is '2' then props.generatorType = "angular2"
+      if props.scaffoldType is '3' then props.generatorType = "new"
       props.settings = settings[props.generatorType]
       @props = props
-
-      # To access props later use this.props.someOption;
       done()
-      return
-    return
+
   writing:
     app: ->
       has = (types) =>
-        result = types.split('').reduce ((prev, type) =>
+        types.split('').reduce ((prev, type) =>
           prev or _(@props?.buildTypes).contains type
         ), false
-        console.log types, "=", result
-        result
 
       initObj = { options: @props, args: [@name]}
 
@@ -91,9 +54,11 @@ module.exports = yeoman.generators.NamedBase.extend(
         @composeWith 'yiang:provider'     , initObj if has 'ap'
         @composeWith 'yiang:e2e'          , initObj if has 'ae'
         @composeWith 'yiang:inbro-action' , initObj if has 'ai'
-      return
-    projectfiles: ->
-      return
+
+      else if @props.generatorType is "new"
+        console.log 'implementation'
+
+    projectfiles: -> return
   install: ->
     # @installDependencies()
     return
