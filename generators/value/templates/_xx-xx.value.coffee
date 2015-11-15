@@ -1,10 +1,10 @@
-<%= name_camel %>Value =
-    name: '<%= name_camel %>'
+<%= nameCamel %>Value =
+    name: '<%= nameCamel %>'
 
 angular
     .module 'app.<%= module %>'
-    .value '<%= name_camel %>Value', <%= name_camel %>Value
+    .value '<%= nameCamel %>Value', <%= nameCamel %>Value
 
 ###*
- * <%= name_camel %>Value
+ * <%= nameCamel %>Value
 ###

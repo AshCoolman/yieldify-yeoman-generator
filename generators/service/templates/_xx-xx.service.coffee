@@ -1,4 +1,4 @@
-<%= name_camel %>Service = ->
+<%= nameCamel %>Service = ->
 
     # PRIVATE
     __private = {
@@ -15,10 +15,10 @@
 
 angular
     .module 'app.<%= module %>'
-    .factory '<%= name_camel %>Service', <%= name_camel %>Service
+    .factory '<%= nameCamel %>Service', <%= nameCamel %>Service
 
 ###*
- * <%= name_camel %>Service
+ * <%= nameCamel %>Service
  * 
  * Private functions prepended with "_" and put in"__private" for testing easy testing
 ###

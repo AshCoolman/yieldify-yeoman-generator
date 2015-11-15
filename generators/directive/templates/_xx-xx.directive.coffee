@@ -1,9 +1,9 @@
-<%= name_camel %>Directive = ->
+<%= nameCamel %>Directive = ->
     restrict: 'AES'
-    templateUrl: '/tpl/<%= name_dash %>.template.html'
-    controllerAs: '<%= name_camel %>'
+    templateUrl: '/tpl/<%= nameDash %>.template.html'
+    controllerAs: '<%= nameCamel %>'
     scope: {}
 
 angular
     .module 'app.<%= module %>'
-    .directive '<%= name_camel %>', <%= name_camel %>Directive
+    .directive '<%= nameCamel %>', <%= nameCamel %>Directive

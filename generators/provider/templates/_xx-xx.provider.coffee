@@ -1,4 +1,4 @@
-<%= name_pascal %>Provider = ->
+<%= namePascal %>Provider = ->
 
     # Members shared between service and provider
     sharedInterface = {}
@@ -13,7 +13,7 @@
     # Run phase concerns are below.
 
     # Service constructor
-    <%= name_pascal %>Service = ($routeParams) ->
+    <%= namePascal %>Service = ($routeParams) ->
         @serviceMethod = (params) => #
         _.extend @, sharedInterface
         @
@@ -22,14 +22,14 @@
     @$get = ($rootScope) =>
         # Glue
         # Create service
-        new <%= name_pascal %>Service $routeParams
+        new <%= namePascal %>Service $routeParams
 
     _.extend @, sharedInterface
     @
 
 angular
     .module 'app.<%= module %>'
-    .provider '<%= name_pascal %>Provider', <%= name_pascal %>Provider
+    .provider '<%= namePascal %>Provider', <%= namePascal %>Provider
 
 
 # Example: calling config
@@ -37,4 +37,4 @@ angular
 # angular
 #     .module 'app', []
 #     .config () ->
-#         <%= name_pascal %>Provider.config {configPhaseAt: (new Date()).toISOString()}
+#         <%= namePascal %>Provider.config {configPhaseAt: (new Date()).toISOString()}

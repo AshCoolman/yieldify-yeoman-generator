@@ -1,4 +1,4 @@
-<%= name_camel %>Controller = ->
+<%= nameCamel %>Controller = ->
     # PRIVATE: prepend names _myPrivateFunc
     
     # PUBLIC: to be placed on vm
@@ -11,4 +11,4 @@
 
 angular
     .module 'app.<%= module %>'
-    .controller '<%= name_camel %>Controller', <%= name_camel %>Controller
+    .controller '<%= nameCamel %>Controller', <%= nameCamel %>Controller

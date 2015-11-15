@@ -1,12 +1,12 @@
 import {Component} from 'angular2/angular2';
 
 @Component({
-    selector: '<%= name_dash %>',
+    selector: '<%= nameDash %>',
     template: `
     `
 })
 
-export class <%= name_pascal %> () {
+export class <%= namePascal %> () {
     
 }
-// import {<%= name_pascal %>} from '<%= moduleLoc %>';
+// import {<%= namePascal %>} from '<%= moduleLoc %>';

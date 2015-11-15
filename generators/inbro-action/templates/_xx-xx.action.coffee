@@ -1,13 +1,13 @@
 create = (bt) =>
 
     # Action info
-    name = "<%= name_camel %>"
+    name = "<%= nameCamel %>"
     FAIL_SAFE = name + " timed out"
     FAIL = false
     PASS = true
 
     # Action
-    <%= name_camel %>: (input) =>
+    <%= nameCamel %>: (input) =>
 
         { } = input
 

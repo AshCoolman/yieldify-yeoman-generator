@@ -14,7 +14,6 @@ module.exports = yeoman.generators.NamedBase.extend(
 
     # Use project's package.json, else fallback to this module's
     settings = null 
-
     if existsSync process.cwd()+'/package.json'
       settings = require(process.cwd()+'/package.json')?['yeoman-yieldify']
       console.log '"yeoman-yieldify" found in '+process.cwd()+'/package.json'
@@ -63,9 +62,10 @@ module.exports = yeoman.generators.NamedBase.extend(
     @prompt prompts, (props) =>
 
       if props.buildTypes.startsWith '2'
-        props.settings = settings["angular2"]
+        props.generatorType = "angular2"
       else
-        props.settings = settings["angular1"]
+        props.generatorType = "angular1"
+      props.settings = settings[props.generatorType]
       @props = props
 
       # To access props later use this.props.someOption;
@@ -75,23 +75,23 @@ module.exports = yeoman.generators.NamedBase.extend(
   writing:
     app: ->
       has = (types) => types.split('').reduce ((prev, type) => prev or _(@props?.buildTypes).contains type), false
+      initObj = { options: @props, args: [@name]}
 
-      if @props.buildTypes.startsWith '2'
-        console.log 'Is angular 2'
-        console.log 'Basic component' if has 'ab'
-        @composeWith 'yiang:ng-2-basic', { options: @props , args: [@name]} if has 'ab'
-      else
-        @composeWith 'yiang:module'       , { options: { } , args: [@name]} if has 'avCdcspm'
-        @composeWith 'yiang:value'        , { options: { } , args: [@name]} if has 'av'
-        @composeWith 'yiang:constant'     , { options: { } , args: [@name]} if has 'aC'
-        @composeWith 'yiang:directive'    , { options: { } , args: [@name]} if has 'adt'
-        @composeWith 'yiang:template'     , { options: { } , args: [@name]} if has 'adt'
-        @composeWith 'yiang:style'        , { options: { } , args: [@name]} if has 'adt'
-        @composeWith 'yiang:controller'   , { options: { } , args: [@name]} if has 'ac'
-        @composeWith 'yiang:service'      , { options: { } , args: [@name]} if has 'as'
-        @composeWith 'yiang:provider'     , { options: { } , args: [@name]} if has 'ap'
-        @composeWith 'yiang:e2e'          , { options: { } , args: [@name]} if has 'ae'
-        @composeWith 'yiang:inbro-action' , { options: { } , args: [@name]} if has 'ai'
+      if @props.generatorType is "angular2"
+        @composeWith 'yiang:ng-2-basic'   , initObj if has 'ab'
+
+      else if @props.generatorType is "angular1"
+        @composeWith 'yiang:module'       , initObj if has 'avCdcspm'
+        @composeWith 'yiang:value'        , initObj if has 'av'
+        @composeWith 'yiang:constant'     , initObj if has 'aC'
+        @composeWith 'yiang:directive'    , initObj if has 'adt'
+        @composeWith 'yiang:template'     , initObj if has 'adt'
+        @composeWith 'yiang:style'        , initObj if has 'adt'
+        @composeWith 'yiang:controller'   , initObj if has 'ac'
+        @composeWith 'yiang:service'      , initObj if has 'as'
+        @composeWith 'yiang:provider'     , initObj if has 'ap'
+        @composeWith 'yiang:e2e'          , initObj if has 'ae'
+        @composeWith 'yiang:inbro-action' , initObj if has 'ai'
       return
     projectfiles: ->
       return

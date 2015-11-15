@@ -4,27 +4,27 @@ utils = require '<%= root_loc %>/e2e.dom.utils.coffee'
 { wait, til } = utils
 
 
-<%= name_pascal %> = (settings, after) ->
+<%= namePascal %> = (settings, after) ->
     Dom.call @, settings, after
     @dom = {}
-    @name = '<%= name_camel %>'
+    @name = '<%= nameCamel %>'
     @
     
-<%= name_pascal %>:: = Object.create Dom::,
+<%= namePascal %>:: = Object.create Dom::,
 
     ###*
      * @type {String}   Folder for test data
     ###
     dataPath:
         enumerable: true
-        value: "test/e2e/spec/<%= file_loc %>/data/"
+        value: "test/e2e/spec/<%= fileLoc %>/data/"
 
     ###*
      * @type {Object}   CSS selectors for elements involved in the tests
     ###
     css:
         value:
-            <%= name_camel %>: '[e2e-<%= name_dash %>]'
+            <%= nameCamel %>: '[e2e-<%= nameDash %>]'
 
 
     ###*
@@ -33,7 +33,7 @@ utils = require '<%= root_loc %>/e2e.dom.utils.coffee'
     exist: 
         get: =>
             ->
-                el = @el '<%= name_camel %>'
+                el = @el '<%= nameCamel %>'
                 expect browser.isElementPresent el
                     .toEqual true
 
@@ -45,4 +45,4 @@ utils = require '<%= root_loc %>/e2e.dom.utils.coffee'
             ->
                 task: -> #
 
-module.exports = <%= name_pascal %>
+module.exports = <%= namePascal %>

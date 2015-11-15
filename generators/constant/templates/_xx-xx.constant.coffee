@@ -1,10 +1,10 @@
-<%= name_camel %>Constant =
-    name: '<%= name_camel %>'
+<%= nameCamel %>Constant =
+    name: '<%= nameCamel %>'
 
 angular
     .module 'app.<%= module %>'
-    .constant '<%= name_camel %>Constant', <%= name_camel %>Constant
+    .constant '<%= nameCamel %>Constant', <%= nameCamel %>Constant
 
 ###*
- * <%= name_camel %>Constant
+ * <%= nameCamel %>Constant
 ###
