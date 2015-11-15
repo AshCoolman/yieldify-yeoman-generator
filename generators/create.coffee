@@ -7,7 +7,6 @@ getCfg = (type, fileLoc, componentDir) ->
     if type is 'ng2' then return getCfgNg2 fileLoc, componentDir
 
 getCfgNg1 = (fileLoc, componentDir) ->
-    console.log fileLoc, componentDir
     bits      = fileLoc.split '/'
     module    = bits.join '.'
     component = bits.pop()
