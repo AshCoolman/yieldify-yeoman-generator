@@ -1,5 +1,5 @@
-Dom = require '<%= root_loc %>/dom.coffee'
-utils = require '<%= root_loc %>/e2e.dom.utils.coffee'
+Dom = require '<%= rootLoc %>/dom.coffee'
+utils = require '<%= rootLoc %>/e2e.dom.utils.coffee'
 
 { wait, til } = utils
 

@@ -67,7 +67,13 @@ module.exports = yeoman.generators.NamedBase.extend(
     return
   writing:
     app: ->
-      has = (types) => types.split('').reduce ((prev, type) => prev or _(@props?.buildTypes).contains type), false
+      has = (types) =>
+        result = types.split('').reduce ((prev, type) =>
+          prev or _(@props?.buildTypes).contains type
+        ), false
+        console.log types, "=", result
+        result
+
       initObj = { options: @props, args: [@name]}
 
       if @props.generatorType is "angular2"

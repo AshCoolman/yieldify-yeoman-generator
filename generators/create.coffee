@@ -14,9 +14,10 @@ getCfgNg1 = (fileLoc, componentDir) ->
         nameDash   : component
         namePascal : changeCase.pascal component
         nameCamel  : changeCase.camel component
-        module      : module
+        module     : module
+        rootLoc    : process.cwd()
         fileLoc    : [process.cwd(), componentDir, fileLoc, component].join('/')
-        moduleLoc   : './' + fileLoc + '/' + component
+        moduleLoc  : './' + fileLoc + '/' + component
     }
 
 getCfgNg2 = (fileLoc, componentDir)-> 
@@ -27,15 +28,16 @@ getCfgNg2 = (fileLoc, componentDir)->
         nameDash   : component
         namePascal : changeCase.pascal component
         nameCamel  : changeCase.camel component
-        fileLoc     : [process.cwd(), componentDir, fileLoc, component].join('/')
-        moduleLoc   : './' + fileLoc + '/' + component
+        fileLoc    : [process.cwd(), componentDir, fileLoc, component].join('/')
+        moduleLoc  : './' + fileLoc + '/' + component
     }
 
 tmpl = (context, templateName, configType, moduleDir) ->
     { template, name } = context
     config = getCfg configType, name, moduleDir
     config.options = context.options
-    template.bind(context) '_xx-xx.'+templateName, config.fileLoc + '.coffee', config
+    [ input, output ] = [ '_xx-xx.' + templateName, config.fileLoc + templateName ]
+    template.bind(context) input, output, config
 
 module.exports =
     module:      -> -> tmpl @, 'coffee'            , 'ng1', @options.settings.components
