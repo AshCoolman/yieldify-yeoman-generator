@@ -30,7 +30,7 @@ This components looks for configuration in its current folder's `package.json`. 
       "e2e": "test/e2e/ng2",
       "inbro": "test/inbro/ng2"
     }
-  },
+  }
 ```
 ### Examples
 
@@ -39,12 +39,14 @@ This components looks for configuration in its current folder's `package.json`. 
 In terminal cd to project root and type:
 
 ```terminal
-$ yo yiang tables/campaign-grid-columns
+$ yo yiang a-parent-component/a-child-component
 ```
 
-This should appear:
+You will be asked first to choose your scaffold type:
 
 ```terminal
+
+
      _-----_
     |       |    .--------------------------.
     |--(o)--|    |    Welcome to Yiang -    |
@@ -56,39 +58,90 @@ This should appear:
  ´   `  |° ´ Y `
 
 
-Module name: tables/campaign-grid-columns
+"yeoman-yieldify" not found in /Users/ashleycoleman/test/package.json, using defaults:
 
+{
+  "angular1": {
+    "components": "app/src/ng1",
+    "e2e": "test/e2e/ng1",
+    "inbro": "test/inbro/ng1"
+  },
+  "angular2": {
+    "components": "app/src/ng2",
+    "e2e": "test/e2e/ng2",
+    "inbro": "test/inbro/ng2"
+  }
+}
+Module name: a-parent-component/a-child-component
 
-[?] Compose build list from:
-  (a)ll
-  (d)irective
-  (c)ontroller
-  (s)service (factory)
+? What type of scaffold:
 
-  default: a
+  (1). Angular 1
+  (2). Angular 2
+  (3). New javascript project
+
+  default: 1
 ```
 
-Here select "s", and you can see the files that are created
+Here angular 1 has been chosen by entering `1`. Now we choose which componnet to create
 
 ```terminal
-   create ../in-broundefined/parent-component/new-sub-component/new-sub-component.coffee
-   create ../in-broundefined/parent-component/new-sub-component/new-sub-component.service.coffee
+? Compose build list from:
+
+  Angular 1:
+
+    (a)ll
+    (C)ONSTANT
+    (v)alue
+    (d)irective
+    (t)emplate
+    (c)ontroller
+    (s)ervice (factory)
+    (p)rovider (service)
+    (m)odule only
+
+    (e)2e dom handle
+    (x)xecute e2e script
+
+    (i)nbro action
+
+
+  default: s
+```
+We choose a _service (factory)_ component by pressing  "s", and our files are created:
+
+```terminal
+   create app/src/ng1/a-parent-component/a-child-component/a-child-component.coffee
+   create app/src/ng1/a-parent-component/a-child-component/a-child-component.service.coffee
+```
+
+We now have the following folders and files:
+
+```
+.
+└── app
+    └── src
+        └── ng1
+            └── a-parent-component
+                └── a-child-component
+                    ├── a-child-component.coffee
+                    └── a-child-component.service.coffee
 ```
 
 
-`campaign-grid-columns.coffee` is a single module file (always created)
+`a-child-component.coffee` is a single module file (always created for angular 1)
 
 ```coffeescript
 angular
-    .module 'app.tables.campaign-grid-columns', [
-    # Dependencies
+    .module 'app.a-parent-component.a-child-component', [
+        # Dependencies
     ]
 ```
 
 `campaign-grid-columns.service.coffee` is a service (Factory) file
 
 ```coffeescript
-CampaignGridColumnsService = ->
+aChildComponentService = ->
 
     # PRIVATE
     __private = {
@@ -104,11 +157,11 @@ CampaignGridColumnsService = ->
     }
 
 angular
-    .module 'app.tables.campaign-grid-columns'
-    .factory 'campaignGridColumnsService', CampaignGridColumnsService
+    .module 'app.a-parent-component.a-child-component'
+    .factory 'aChildComponentService', aChildComponentService
 
 ###*
- * campaignGridColumnsService
+ * aChildComponentService
  * 
  * Private functions prepended with "_" and put in"__private" for testing easy testing
 ###
