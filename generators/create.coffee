@@ -36,19 +36,19 @@ tmpl = (context, templateName, configType, moduleDir) ->
     { template, name } = context
     config = getCfg configType, name, moduleDir
     config.options = context.options
-    [ input, output ] = [ '_xx-xx.' + templateName, config.fileLoc + templateName ]
+    [ input, output ] = [ '_xx-xx' + templateName, config.fileLoc + templateName ]
     template.bind(context) input, output, config
 
 module.exports =
-    module:      -> -> tmpl @, 'coffee'            , 'ng1', @options.settings.components
-    constant:    -> -> tmpl @, 'constant.coffee'   , 'ng1', @options.settings.components 
-    value:       -> -> tmpl @, 'value.coffee'      , 'ng1', @options.settings.components
-    directive:   -> -> tmpl @, 'directive.coffee'  , 'ng1', @options.settings.components
-    template:    -> -> tmpl @, 'template.jade'     , 'ng1', @options.settings.components
-    style:       -> -> tmpl @, 'style.styl'        , 'ng1', @options.settings.components
-    controller:  -> -> tmpl @, 'controller.coffee' , 'ng1', @options.settings.components
-    service:     -> -> tmpl @, 'service.coffee'    , 'ng1', @options.settings.components
-    provider:    -> -> tmpl @, 'provider.coffee'   , 'ng1', @options.settings.components
-    e2e:         -> -> tmpl @, 'e2e.dom.coffee'    , 'ng1', @options.settings.e2e
-    inbroAction: -> -> tmpl @, 'action.coffee'     , 'ng1', @options.settings.inbro
-    ng2Basic:    -> -> tmpl @, 'ts'                , 'ng2', @options.settings.components
+    module:      -> -> tmpl @, '.coffee'            , 'ng1', @options.settings.components
+    constant:    -> -> tmpl @, '.constant.coffee'   , 'ng1', @options.settings.components 
+    value:       -> -> tmpl @, '.value.coffee'      , 'ng1', @options.settings.components
+    directive:   -> -> tmpl @, '.directive.coffee'  , 'ng1', @options.settings.components
+    template:    -> -> tmpl @, '.template.jade'     , 'ng1', @options.settings.components
+    style:       -> -> tmpl @, '.style.styl'        , 'ng1', @options.settings.components
+    controller:  -> -> tmpl @, '.controller.coffee' , 'ng1', @options.settings.components
+    service:     -> -> tmpl @, '.service.coffee'    , 'ng1', @options.settings.components
+    provider:    -> -> tmpl @, '.provider.coffee'   , 'ng1', @options.settings.components
+    e2e:         -> -> tmpl @, '.e2e.dom.coffee'    , 'ng1', @options.settings.e2e
+    inbroAction: -> -> tmpl @, '.action.coffee'     , 'ng1', @options.settings.inbro
+    ng2Basic:    -> -> tmpl @, '.ts'                , 'ng2', @options.settings.components
