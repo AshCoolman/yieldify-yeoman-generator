@@ -6,7 +6,7 @@ import {Component} from 'angular2/angular2';
     `
 })
 
-export class <%= namePascal %> {
+export default class <%= namePascal %> {
     
 }
 // import {<%= namePascal %>} from '<%= moduleLoc %>';
