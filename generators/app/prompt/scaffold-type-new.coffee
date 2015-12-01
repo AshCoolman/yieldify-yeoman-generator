@@ -1,6 +1,6 @@
 chalk = require 'chalk'
 module.exports = {
-  when: (res) -> res.scaffoldType is "3"
+  when: (res) -> res.scaffoldType is "n"
   type: 'input'
   name: 'newFeatures'
   message: """

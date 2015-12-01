@@ -26,7 +26,7 @@ module.exports = yeoman.generators.NamedBase.extend(
     @prompt prompts, (props) =>
       if props.scaffoldType is '1' then props.generatorType = "angular1"
       if props.scaffoldType is '2' then props.generatorType = "angular2"
-      if props.scaffoldType is '3' then props.generatorType = "newnpm"
+      if props.scaffoldType is 'n' then props.generatorType = "newnpm"
       props.settings = settings[props.generatorType]
       @props = props
       done()

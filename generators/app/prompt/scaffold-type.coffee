@@ -8,7 +8,7 @@ module.exports = {
 
     (#{chalk.cyan('1')}). Angular 1
     (#{chalk.cyan('2')}). Angular 2
-    (#{chalk.cyan('3')}). New javascript project
+    (#{chalk.cyan('n')})pm package #{chalk.red('Not done')}
 
     default:
   """
