@@ -22,11 +22,13 @@ module.exports = yeoman.generators.NamedBase.extend(
       require "./prompt/scaffold-type-angular-1"
       require "./prompt/scaffold-type-angular-2"
       require "./prompt/scaffold-type-new"
+      require "./prompt/scaffold-type-yieldify"
     ]
     @prompt prompts, (props) =>
       if props.scaffoldType is '1' then props.generatorType = "angular1"
       if props.scaffoldType is '2' then props.generatorType = "angular2"
       if props.scaffoldType is 'n' then props.generatorType = "newnpm"
+      if props.scaffoldType is 'y' then props.generatorType = "yieldify"
       props.settings = settings[props.generatorType]
       @props = props
       done()
@@ -55,6 +57,10 @@ module.exports = yeoman.generators.NamedBase.extend(
         @composeWith 'yiang:provider'     , initObj if has 'ap'
         @composeWith 'yiang:e2e'          , initObj if has 'ae'
         @composeWith 'yiang:inbro-action' , initObj if has 'ai'
+      
+      else if @props.generatorType is "yieldify"
+        has = propsContainsInVal('yieldify.choice')
+        console.log 'Major with redux in ng 1...'   if has '1'
 
       else if @props.generatorType is "newnpm"
         has = propsContainsInVal('newFeatures')

@@ -8,6 +8,7 @@ module.exports = {
 
     (#{chalk.cyan('1')}). Angular 1
     (#{chalk.cyan('2')}). Angular 2
+    (#{chalk.cyan('y')})ieldify special components (angular 1, 2)
     (#{chalk.cyan('n')})pm package #{chalk.red('Not done')}
 
     default:
