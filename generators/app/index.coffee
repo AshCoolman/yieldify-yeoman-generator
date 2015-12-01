@@ -33,17 +33,17 @@ module.exports = yeoman.generators.NamedBase.extend(
 
   writing:
     app: ->
-      propsContains = (key) =>
+      propsContainsInVal = (key) =>
         containsFactory @props, key
 
       initObj = { options: @props, args: [@name]}
 
       if @props.generatorType is "angular2"
-        has = propsContains('buildTypes')
+        has = propsContainsInVal('buildTypes')
         @composeWith 'yiang:ng-2-basic'   , initObj if has 'ab'
 
       else if @props.generatorType is "angular1"
-        has = propsContains('buildTypes')
+        has = propsContainsInVal('buildTypes')
         @composeWith 'yiang:module'       , initObj if has 'avCdcspm'
         @composeWith 'yiang:value'        , initObj if has 'av'
         @composeWith 'yiang:constant'     , initObj if has 'aC'
@@ -57,7 +57,7 @@ module.exports = yeoman.generators.NamedBase.extend(
         @composeWith 'yiang:inbro-action' , initObj if has 'ai'
 
       else if @props.generatorType is "newnpm"
-        has = propsContains('newFeatures')
+        has = propsContainsInVal('newFeatures')
         console.log 'Basic...'
         console.log 'Babel...'      if has 'b'
         console.log 'Typescript...' if has 't'
