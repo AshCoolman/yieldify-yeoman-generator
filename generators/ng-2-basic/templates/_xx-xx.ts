@@ -7,6 +7,12 @@ import {Component} from 'angular2/angular2';
 })
 
 export default class <%= namePascal %> {
+
+    constructor(
+        
+    ) {
+
+    }
     
 }
 // import {<%= namePascal %>} from '<%= moduleLoc %>';
