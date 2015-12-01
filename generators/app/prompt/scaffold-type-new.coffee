@@ -2,19 +2,17 @@ chalk = require 'chalk'
 module.exports = {
   when: (res) -> res.scaffoldType is "n"
   type: 'input'
-  name: 'newFeatures'
+  name: 'newNpm.choice'
   message: """
-  Compose build list from:
+  NEXT CHOICE: Create a npmjs package:
+  -----------------------
+    (#{chalk.cyan('b')})abel
+    (#{chalk.cyan('t')})ypescript
+    (#{chalk.cyan('c')})offee
 
-    #{chalk.red('New javascript project')}
+    (#{chalk.cyan('B')})ower
 
-      (#{chalk.cyan('b')})abel
-      (#{chalk.cyan('t')})ypescript
-      (#{chalk.cyan('c')})offee
-
-      (#{chalk.cyan('B')})ower
-
-    default:
+  default:
   """
   default: chalk.cyan 't'
 }

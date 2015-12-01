@@ -1,17 +1,14 @@
 chalk = require 'chalk'
 module.exports = {
-  when: (res) -> res.scaffoldType is "2"
+  when: (res) -> res.scaffoldType is "3"
   type: 'input'
-  name: 'buildTypes'
+  name: 'angular2.choice'
   message: """
-  Compose build list from:
+  NEXT CHOICE: Angular 2 components:
+  --------------------
+    (#{chalk.cyan('b')})asic component
 
-    #{chalk.red('Angular 2')}
-
-      (#{chalk.cyan('b')})asic component
-      (#{chalk.cyan('a')})all
-
-    default:
+  default:
   """
-  default: chalk.cyan 'a'
+  default: chalk.cyan 'b'
 }
