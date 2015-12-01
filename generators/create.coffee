@@ -40,6 +40,7 @@ tmpl = (context, templateName, configType, moduleDir) ->
     template.bind(context) input, output, config
 
 module.exports =
+    # Angular 1 old
     module:      -> -> tmpl @, '.coffee'            , 'ng1', @options.settings.components
     constant:    -> -> tmpl @, '.constant.coffee'   , 'ng1', @options.settings.components 
     value:       -> -> tmpl @, '.value.coffee'      , 'ng1', @options.settings.components
@@ -51,4 +52,7 @@ module.exports =
     provider:    -> -> tmpl @, '.provider.coffee'   , 'ng1', @options.settings.components
     e2e:         -> -> tmpl @, '.e2e.dom.coffee'    , 'ng1', @options.settings.e2e
     inbroAction: -> -> tmpl @, '.action.coffee'     , 'ng1', @options.settings.inbro
+    # Angular 1
+    ng1Basic:    -> -> tmpl @, '.ts'                , 'ng2', @options.settings.components
+    # Angular 2
     ng2Basic:    -> -> tmpl @, '.ts'                , 'ng2', @options.settings.components

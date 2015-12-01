@@ -57,7 +57,7 @@ module.exports = yeoman.generators.NamedBase.extend(
         @composeWith 'yiang:inbro-action' , initObj if has 'ai'
 
       if @props.generatorType is "angular1"
-        console.log 'Not implemented...'
+        @composeWith 'yiang:ng-1-basic'   , initObj if has 'b'
 
       if @props.generatorType is "angular2"
         @composeWith 'yiang:ng-2-basic'   , initObj if has 'b'

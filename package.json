@@ -9,15 +9,22 @@
     "url": "git+https://github.com/ashcoolman/generator-yiang.git"
   },
   "yeoman-yieldify": {
-    "angular1": {
+    "angular1Old": {
       "components": "app/src/ng1",
       "e2e": "test/e2e/ng1",
       "inbro": "test/inbro/ng1"
     },
+    "angular1": {
+      "components": "src/components/minor"
+    },
     "angular2": {
-      "components": "app/src/ng2",
-      "e2e": "test/e2e/ng2",
-      "inbro": "test/inbro/ng2"
+      "components": "src/components/minor"
+    },
+    "angularImpl": {
+      "components": "src/components/minor"
+    },
+    "newNpm": {
+      "components": "src/components/minor"
     }
   },
   "author": {
